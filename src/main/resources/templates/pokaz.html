@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    </head>
+<body>
+<p align="center"> <h2>Książka telefoniczna</h2></p> <br>
+
+<table  class="table table-striped">
+    <tr><th>Imię</th><th>Nazwisko</th><th>Telefon</th><th>e-mail</th><th>Opis</th><th>kasuj</th><th>aktualizuj</th><</tr>
+
+    <tr  th:each="wpis: ${osoba}"> <td th:text="${wpis.imie}">Imię</td>
+        <td th:text="${wpis.nazwisko}">Nazwisko</td>
+        <td th:text="${wpis.telefon}">Telefon</td>
+        <td th:text="${wpis.email}">e-mail</td>
+        <td th:text="${wpis.opis}">Opis</td>
+
+
+        <td>
+            <a href="#" th:href="@{/kasuj(id=${wpis.id})}" class="btn btn-danger">
+
+                <i class="fa fa-trash-o fa-lg"></i>Kasuj</a></td>
+
+
+        <td>
+            <a href="#" th:href="@{/przekieruj(id=${wpis.id})}" class="btn btn-primary">
+
+                <i class="fa fa-trash-o fa-lg"></i>Aktualizuj</a></td>
+
+    </tr>
+
+</table>
+
+<table class="table table-striped">
+    <tr><td> Wyszukaj osoby wg nazwiska</td><td><form action="http://localhost:8080/wyszukaj"><input name="kryterium"></td><td><input type="submit"></form></td></tr>
+
+
+
+    </table>
+    <form>
+        <td><input type="submit" formaction="/" value="Menu"></td>
+    </form>
+
+<form>
+    <td colspan="1">
+        <input type="submit" formaction="/pokaz" value="Lista"></td>
+</form>
+
+
+</body>
+</html>
